@@ -1,0 +1,460 @@
+[
+  {
+    "id": "rumor-1",
+    "text": "They say lanterns arguing again.",
+    "topic": "lanterns arguing again",
+    "truth_score": 0.53,
+    "tags": [
+      "festival"
+    ],
+    "origin_npc": "mira",
+    "locations": [
+      "Market",
+      "Harbor"
+    ],
+    "spread_history": [
+      {
+        "npc": "mira",
+        "location": "Market",
+        "timestamp": "2024-01-01T08:00:00Z"
+      },
+      {
+        "npc": "pip",
+        "location": "Harbor",
+        "timestamp": "2024-02-07T12:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "rumor-2",
+    "text": "They say a bridge that hums when you lie.",
+    "topic": "a bridge that hums when you lie",
+    "truth_score": 0.44,
+    "tags": [
+      "travel"
+    ],
+    "origin_npc": "thorn",
+    "locations": [
+      "Harbor",
+      "Market"
+    ],
+    "spread_history": [
+      {
+        "npc": "thorn",
+        "location": "Harbor",
+        "timestamp": "2024-01-02T08:00:00Z"
+      },
+      {
+        "npc": "lysa",
+        "location": "Market",
+        "timestamp": "2024-02-05T12:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "rumor-3",
+    "text": "They say a market stall trading shadows.",
+    "topic": "a market stall trading shadows",
+    "truth_score": 0.69,
+    "tags": [
+      "merchant"
+    ],
+    "origin_npc": "pip",
+    "locations": [
+      "Temple",
+      "Tavern"
+    ],
+    "spread_history": [
+      {
+        "npc": "pip",
+        "location": "Temple",
+        "timestamp": "2024-01-03T08:00:00Z"
+      },
+      {
+        "npc": "mira",
+        "location": "Tavern",
+        "timestamp": "2024-02-09T12:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "rumor-4",
+    "text": "They say a ghost hiring a babysitter.",
+    "topic": "a ghost hiring a babysitter",
+    "truth_score": 0.51,
+    "tags": [
+      "supernatural"
+    ],
+    "origin_npc": "lysa",
+    "locations": [
+      "Guildhall",
+      "Tavern"
+    ],
+    "spread_history": [
+      {
+        "npc": "lysa",
+        "location": "Guildhall",
+        "timestamp": "2024-01-04T08:00:00Z"
+      },
+      {
+        "npc": "sera",
+        "location": "Tavern",
+        "timestamp": "2024-02-08T12:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "rumor-5",
+    "text": "They say a mermaid bargaining for boots.",
+    "topic": "a mermaid bargaining for boots",
+    "truth_score": 0.59,
+    "tags": [
+      "monster"
+    ],
+    "origin_npc": "sera",
+    "locations": [
+      "Tavern"
+    ],
+    "spread_history": [
+      {
+        "npc": "sera",
+        "location": "Tavern",
+        "timestamp": "2024-01-05T08:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "rumor-6",
+    "text": "They say a baker with a prophetic loaf.",
+    "topic": "a baker with a prophetic loaf",
+    "truth_score": 0.41,
+    "tags": [
+      "merchant"
+    ],
+    "origin_npc": "corin",
+    "locations": [
+      "Market"
+    ],
+    "spread_history": [
+      {
+        "npc": "corin",
+        "location": "Market",
+        "timestamp": "2024-01-06T08:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "rumor-7",
+    "text": "They say a statue that asks for stories.",
+    "topic": "a statue that asks for stories",
+    "truth_score": 0.62,
+    "tags": [
+      "mystery"
+    ],
+    "origin_npc": "edda",
+    "locations": [
+      "Harbor"
+    ],
+    "spread_history": [
+      {
+        "npc": "edda",
+        "location": "Harbor",
+        "timestamp": "2024-01-07T08:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "rumor-8",
+    "text": "They say a bell that rings for honesty.",
+    "topic": "a bell that rings for honesty",
+    "truth_score": 0.46,
+    "tags": [
+      "religion"
+    ],
+    "origin_npc": "morrow",
+    "locations": [
+      "Temple"
+    ],
+    "spread_history": [
+      {
+        "npc": "morrow",
+        "location": "Temple",
+        "timestamp": "2024-01-08T08:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "rumor-9",
+    "text": "They say a storm that can be negotiated.",
+    "topic": "a storm that can be negotiated",
+    "truth_score": 0.84,
+    "tags": [
+      "weather"
+    ],
+    "origin_npc": "mira",
+    "locations": [
+      "Guildhall"
+    ],
+    "spread_history": [
+      {
+        "npc": "mira",
+        "location": "Guildhall",
+        "timestamp": "2024-01-09T08:00:00Z"
+      },
+      {
+        "npc": "pip",
+        "location": "Guildhall",
+        "timestamp": "2024-02-10T12:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "rumor-10",
+    "text": "They say a fox courier with a sealed letter.",
+    "topic": "a fox courier with a sealed letter",
+    "truth_score": 0.9,
+    "tags": [
+      "messenger"
+    ],
+    "origin_npc": "thorn",
+    "locations": [
+      "Tavern"
+    ],
+    "spread_history": [
+      {
+        "npc": "thorn",
+        "location": "Tavern",
+        "timestamp": "2024-01-01T08:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "rumor-11",
+    "text": "They say a tavern dartboard that sneezes.",
+    "topic": "a tavern dartboard that sneezes",
+    "truth_score": 0.83,
+    "tags": [
+      "social"
+    ],
+    "origin_npc": "pip",
+    "locations": [
+      "Market"
+    ],
+    "spread_history": [
+      {
+        "npc": "pip",
+        "location": "Market",
+        "timestamp": "2024-01-02T08:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "rumor-12",
+    "text": "They say a guild ledger writing footnotes.",
+    "topic": "a guild ledger writing footnotes",
+    "truth_score": 0.65,
+    "tags": [
+      "politics"
+    ],
+    "origin_npc": "lysa",
+    "locations": [
+      "Harbor",
+      "Market",
+      "Tavern"
+    ],
+    "spread_history": [
+      {
+        "npc": "lysa",
+        "location": "Harbor",
+        "timestamp": "2024-01-03T08:00:00Z"
+      },
+      {
+        "npc": "sera",
+        "location": "Market",
+        "timestamp": "2024-02-01T12:00:00Z"
+      },
+      {
+        "npc": "lysa",
+        "location": "Tavern",
+        "timestamp": "2024-02-06T12:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "rumor-13",
+    "text": "They say a lantern festival arriving early.",
+    "topic": "a lantern festival arriving early",
+    "truth_score": 0.72,
+    "tags": [
+      "festival"
+    ],
+    "origin_npc": "sera",
+    "locations": [
+      "Temple"
+    ],
+    "spread_history": [
+      {
+        "npc": "sera",
+        "location": "Temple",
+        "timestamp": "2024-01-04T08:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "rumor-14",
+    "text": "They say a bridge blessing gone sideways.",
+    "topic": "a bridge blessing gone sideways",
+    "truth_score": 0.83,
+    "tags": [
+      "travel"
+    ],
+    "origin_npc": "corin",
+    "locations": [
+      "Guildhall"
+    ],
+    "spread_history": [
+      {
+        "npc": "corin",
+        "location": "Guildhall",
+        "timestamp": "2024-01-05T08:00:00Z"
+      },
+      {
+        "npc": "corin",
+        "location": "Guildhall",
+        "timestamp": "2024-02-04T12:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "rumor-15",
+    "text": "They say a market cart running away.",
+    "topic": "a market cart running away",
+    "truth_score": 0.7,
+    "tags": [
+      "merchant"
+    ],
+    "origin_npc": "edda",
+    "locations": [
+      "Tavern"
+    ],
+    "spread_history": [
+      {
+        "npc": "edda",
+        "location": "Tavern",
+        "timestamp": "2024-01-06T08:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "rumor-16",
+    "text": "They say a harbor tide whispering names.",
+    "topic": "a harbor tide whispering names",
+    "truth_score": 0.45,
+    "tags": [
+      "general"
+    ],
+    "origin_npc": "morrow",
+    "locations": [
+      "Market"
+    ],
+    "spread_history": [
+      {
+        "npc": "morrow",
+        "location": "Market",
+        "timestamp": "2024-01-07T08:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "rumor-17",
+    "text": "They say a temple candle demanding jokes (attributed to statue gossip).",
+    "topic": "a temple candle demanding jokes",
+    "truth_score": 0.37,
+    "tags": [
+      "general"
+    ],
+    "origin_npc": "mira",
+    "locations": [
+      "Harbor",
+      "Market",
+      "Tavern"
+    ],
+    "spread_history": [
+      {
+        "npc": "mira",
+        "location": "Harbor",
+        "timestamp": "2024-01-08T08:00:00Z"
+      },
+      {
+        "npc": "edda",
+        "location": "Market",
+        "timestamp": "2024-02-02T12:00:00Z"
+      },
+      {
+        "npc": "corin",
+        "location": "Tavern",
+        "timestamp": "2024-02-03T12:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "rumor-18",
+    "text": "They say a guild duel settled by riddles.",
+    "topic": "a guild duel settled by riddles",
+    "truth_score": 0.88,
+    "tags": [
+      "politics"
+    ],
+    "origin_npc": "thorn",
+    "locations": [
+      "Temple"
+    ],
+    "spread_history": [
+      {
+        "npc": "thorn",
+        "location": "Temple",
+        "timestamp": "2024-01-09T08:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "rumor-19",
+    "text": "They say a tavern song that will not stop.",
+    "topic": "a tavern song that will not stop",
+    "truth_score": 0.86,
+    "tags": [
+      "social"
+    ],
+    "origin_npc": "pip",
+    "locations": [
+      "Guildhall"
+    ],
+    "spread_history": [
+      {
+        "npc": "pip",
+        "location": "Guildhall",
+        "timestamp": "2024-01-01T08:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "rumor-20",
+    "text": "They say a merchant selling bottled promises.",
+    "topic": "a merchant selling bottled promises",
+    "truth_score": 0.84,
+    "tags": [
+      "general"
+    ],
+    "origin_npc": "lysa",
+    "locations": [
+      "Tavern"
+    ],
+    "spread_history": [
+      {
+        "npc": "lysa",
+        "location": "Tavern",
+        "timestamp": "2024-01-02T08:00:00Z"
+      }
+    ]
+  }
+]
