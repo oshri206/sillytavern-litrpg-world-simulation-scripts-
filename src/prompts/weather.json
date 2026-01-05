@@ -1,0 +1,11 @@
+{
+  "description": "Weather states",
+  "states": [
+    "Sunny with dramatic breezes",
+    "Mist that smells faintly of cinnamon",
+    "Playful rain and puddle gossip",
+    "Thunder that grumbles like a hungry cat",
+    "Snow that arrives early to surprise the festivals",
+    "Wind that keeps rearranging the market signs"
+  ]
+}

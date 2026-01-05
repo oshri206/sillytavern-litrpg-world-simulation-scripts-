@@ -1,0 +1,15 @@
+{
+  "description": "Ambient Vex notifier lines",
+  "lines": [
+    { "text": "Vex whispers: the lanterns are arguing again. Light them anyway.", "rarity": "common" },
+    { "text": "Vex notes: a crab marched off with the baker's last bun. Justice is chewy.", "rarity": "common" },
+    { "text": "Vex hums: someone is trading gossip for candied roots at the bridge.", "rarity": "common" },
+    { "text": "Vex chirps: the west gate smells like storm-sweets and trouble.", "rarity": "uncommon" },
+    { "text": "Vex cackles: a broom challenged the wind. The broom won.", "rarity": "uncommon" },
+    { "text": "Vex sighs: the raven with a red ribbon is asking for names again.", "rarity": "uncommon" },
+    { "text": "Vex warns: moon-moths are chewing on forgotten wishes. Offer them crumbs.", "rarity": "rare" },
+    { "text": "Vex murmurs: the river just told a secret about a missing key.", "rarity": "rare" },
+    { "text": "Vex laughs: the statue winked at noon. No one blinked back.", "rarity": "rare" },
+    { "text": "Vex proclaims: the market has decided to haggle with the sun today.", "rarity": "legendary" }
+  ]
+}
