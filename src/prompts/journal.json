@@ -1,0 +1,4 @@
+{
+  "description": "Journal summary prompt",
+  "template": "Summarize the last few days in Valdris with playful, slightly chaotic tone. Mention notable rumors, weather, and any titles earned. Keep it to 2-3 sentences."
+}

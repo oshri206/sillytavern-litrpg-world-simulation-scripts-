@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "JournalEntry",
+  "type": "object",
+  "required": ["id", "day", "summary"],
+  "properties": {
+    "id": { "type": "string" },
+    "day": { "type": "number" },
+    "summary": { "type": "string" }
+  }
+}

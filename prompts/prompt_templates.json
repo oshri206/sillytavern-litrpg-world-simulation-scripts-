@@ -1,0 +1,230 @@
+{
+  "vex_ambient_line": {
+    "description": "Create a 1-2 sentence Vex ambient line in playful, slightly chaotic fantasy tone.",
+    "instruction": "You are Vex, a mischievous ambient narrator. Use the provided mood, rarity, and trigger_hint to shape a short 1-2 sentence line. Keep it whimsical, lightly chaotic, and fantasy-light. Avoid modern slang. Include a tiny sensory detail. Rarity influences boldness (common=gentle, rare=odd, legendary=grand).",
+    "fields": ["mood", "rarity", "trigger_hint"],
+    "examples": [
+      {
+        "input": {
+          "mood": "curious",
+          "rarity": "common",
+          "trigger_hint": "playerAction: offered bread to geese"
+        },
+        "output": "Vex murmurs: the geese accepted your tribute and are now debating the crumbs' honor. The bridge smells like warm wheat and victory."
+      },
+      {
+        "input": {
+          "mood": "ominous",
+          "rarity": "rare",
+          "trigger_hint": "dayTick: fog at dawn"
+        },
+        "output": "Vex warns: the fog is borrowing names this morning, so keep yours tucked close. It tastes of old bells and forgotten promises."
+      }
+    ]
+  },
+  "rumor_variant": {
+    "description": "Generate a 1-3 sentence rumor phrasing with provenance flavor.",
+    "instruction": "Write a rumor in playful, slightly chaotic fantasy tone. Use origin_npc and topic to anchor the rumor, and truth_score (0-1) to hint at reliability (low=fluffy speculation, high=confident but still whimsical). Keep 1-3 sentences. Include who supposedly heard it and a small odd detail.",
+    "fields": ["origin_npc", "topic", "truth_score"],
+    "examples": [
+      {
+        "input": {
+          "origin_npc": "Mira the Lantern Keeper",
+          "topic": "a secret door behind the tavern dartboard",
+          "truth_score": 0.3
+        },
+        "output": "Mira swears she heard the dartboard sneeze, which is usually a sign of secrets. They say there's a door behind it, but the hinges might be shy today."
+      },
+      {
+        "input": {
+          "origin_npc": "Thorn the Harbor Watch",
+          "topic": "a ghost hiring a babysitter",
+          "truth_score": 0.8
+        },
+        "output": "Thorn says the ghost posted a notice by the docks, and the ink was still chilly. The job is real; the schedule is not."
+      }
+    ]
+  },
+  "merchant_dialog": {
+    "description": "Craft a short merchant line for haggling or pricing.",
+    "instruction": "Write a concise merchant line (1-2 sentences) using merchant_personality, item, price, and haggle_stage (intro, counter, final). Keep it playful, chaotic, and fantasy-light. Mention the item and price, and add a quirky aside.",
+    "fields": ["merchant_personality", "item", "price", "haggle_stage"],
+    "examples": [
+      {
+        "input": {
+          "merchant_personality": "sunny and theatrical",
+          "item": "lantern",
+          "price": 12,
+          "haggle_stage": "intro"
+        },
+        "output": "A lantern for 12 coins, darling, and it hums like a happy bee. I promise it only gossips about the moon."
+      },
+      {
+        "input": {
+          "merchant_personality": "gruff but fair",
+          "item": "rope",
+          "price": 5,
+          "haggle_stage": "final"
+        },
+        "output": "Five coins, final. The rope is trained not to untie itself unless you insult it."
+      }
+    ]
+  },
+  "memory_summarizer": {
+    "description": "Summarize interaction text into a short memory with sentiment.",
+    "instruction": "Summarize the interaction_text into 1-2 lines in playful, slightly chaotic fantasy tone. Return JSON with keys summary and sentiment (range -1 to 1). Sentiment should reflect tone (positive for friendly, negative for hostile). Keep summary concise.",
+    "fields": ["interaction_text"],
+    "examples": [
+      {
+        "input": {
+          "interaction_text": "You helped Mira fix the lantern and shared a joke about lazy stars."
+        },
+        "output": {
+          "summary": "Helped Mira coax a stubborn lantern back to life, and the stars laughed along. She remembers the kindness with a warm flicker.",
+          "sentiment": 0.6
+        }
+      },
+      {
+        "input": {
+          "interaction_text": "A tense argument with the Harbor Watch about a missing crate."
+        },
+        "output": {
+          "summary": "Argued with the Harbor Watch over a vanished crate; tempers splashed like tidewater. Trust dimmed a little.",
+          "sentiment": -0.4
+        }
+      }
+    ]
+  },
+  "festival_description": {
+    "description": "Describe a festival with NPC greetings.",
+    "instruction": "Write a single paragraph describing the festival in a playful, chaotic fantasy tone. Use festival_name, vibe, and activities. After the paragraph, add 2 short NPC greetings, each on its own line, prefixed by an NPC name. Keep it warm and whimsical.",
+    "fields": ["festival_name", "vibe", "activities"],
+    "examples": [
+      {
+        "input": {
+          "festival_name": "Lantern Mischief",
+          "vibe": "glowingly mischievous",
+          "activities": ["lantern parades", "shadow swapping", "midnight soup"]
+        },
+        "output": "Lantern Mischief glows with a mischievous shimmer; lantern parades drift like fireflies, shadows swap partners, and midnight soup tastes of secrets and cinnamon.\nMira: \"Mind the lanterns; they flirt back.\"\nPip: \"If your shadow steals mine, we call it a dance.\""
+      },
+      {
+        "input": {
+          "festival_name": "Soup & Secrets",
+          "vibe": "cozy and conspiratorial",
+          "activities": ["shared kettles", "whisper exchanges", "spoon duels"]
+        },
+        "output": "Soup & Secrets simmers with cozy conspiracy; shared kettles bubble, whispers pass like steam, and spoon duels clink with friendly rivalry.\nThorn: \"Tell your secret to the broth; it keeps a good lid.\"\nLysa: \"Soup first, rumor second, hugs third.\""
+      }
+    ]
+  },
+  "encounter_template": {
+    "description": "Create a short encounter scene with choices.",
+    "instruction": "Write a 2-4 line encounter scene using seed, stakes, and location_tag. Tone: playful, chaotic, fantasy-light. End with 2-3 choices as bullet points starting with a dash. Choices should be short verbs.",
+    "fields": ["seed", "stakes", "location_tag"],
+    "examples": [
+      {
+        "input": {
+          "seed": "a runaway soup cart",
+          "stakes": "the festival line is about to riot",
+          "location_tag": "Market"
+        },
+        "output": "In the Market, a soup cart rolls free like a delighted boar, sloshing promises across the cobblestones. The festival line grows grumpy and hungry.\n- Chase the cart\n- Calm the crowd\n- Taste the evidence"
+      },
+      {
+        "input": {
+          "seed": "a talking bell",
+          "stakes": "someone's name is trapped inside",
+          "location_tag": "Bell Tower"
+        },
+        "output": "At the Bell Tower, a bell whispers in a voice that sounds like rain on tin. It claims a name is trapped in its echo.\n- Ring it once\n- Ask a question\n- Leave an offering"
+      }
+    ]
+  },
+  "weather_flavor": {
+    "description": "Create a short weather description.",
+    "instruction": "Write 1-2 sentences describing the weather in a playful, chaotic fantasy tone. Use location, weather_type, and intensity. Include a tiny sensory detail and how it affects mood or commerce.",
+    "fields": ["location", "weather_type", "intensity"],
+    "examples": [
+      {
+        "input": {
+          "location": "Harbor",
+          "weather_type": "mist",
+          "intensity": "light"
+        },
+        "output": "A light mist curls around the Harbor, smelling faintly of salt and cinnamon. Traders lower their voices and their prices."
+      },
+      {
+        "input": {
+          "location": "Guildhall",
+          "weather_type": "thunder",
+          "intensity": "heavy"
+        },
+        "output": "Heavy thunder stomps above the Guildhall, rattling windows like impatient drums. Everyone negotiates faster."
+      }
+    ]
+  },
+  "title_reaction": {
+    "description": "NPC reaction line to a player title.",
+    "instruction": "Write 1-2 lines in playful, slightly chaotic fantasy tone. Use npc_personality and player_title. The reaction must reference the title and show a distinct attitude (admiring, teasing, wary).",
+    "fields": ["npc_personality", "player_title"],
+    "examples": [
+      {
+        "input": {
+          "npc_personality": "teasing",
+          "player_title": "Honorary Goose"
+        },
+        "output": "Oh, Honorary Goose, do you honk with pride or with mischief? Either way, the bridge approves."
+      },
+      {
+        "input": {
+          "npc_personality": "respectful",
+          "player_title": "Storm Negotiator"
+        },
+        "output": "Storm Negotiator, your calm carries farther than thunder. I will mind my words."
+      }
+    ]
+  },
+  "storylet_micro": {
+    "description": "Create a 2-4 sentence discoverable vignette.",
+    "instruction": "Write a 2-4 sentence vignette in playful, chaotic fantasy tone. Use tile_tag and hint to anchor location and a subtle clue. End with a gentle nudge toward investigation.",
+    "fields": ["tile_tag", "hint"],
+    "examples": [
+      {
+        "input": {
+          "tile_tag": "Alley",
+          "hint": "chalk symbols"
+        },
+        "output": "In the Alley, chalk symbols skitter across the stones like shy crabs. The last mark looks freshly drawn and humming. Maybe follow the humming."
+      },
+      {
+        "input": {
+          "tile_tag": "Tavern",
+          "hint": "a hidden latch"
+        },
+        "output": "At the Tavern, the hearth crackles with a smug rhythm. A hidden latch clicks when you tap the third brick. Perhaps see what it wants."
+      }
+    ]
+  },
+  "journal_summary": {
+    "description": "Generate a polished journal entry.",
+    "instruction": "Write a 3-6 line journal entry in playful, chaotic fantasy tone. Use chat_transcript and key_events as source material. Include at least one rumor, one weather detail, and any titles earned. Keep it coherent and reflective.",
+    "fields": ["chat_transcript", "key_events"],
+    "examples": [
+      {
+        "input": {
+          "chat_transcript": "Met Mira. Fixed lanterns. Laughed about the moon.",
+          "key_events": ["Lantern Mischief festival", "Rumor about a sneezing dartboard", "Earned title: Bridge-Whisperer", "Sunny with dramatic breezes"]
+        },
+        "output": "Lantern Mischief lit the streets, and my hands still smell of oil and warm brass.\nA rumor claims the tavern dartboard sneezes when secrets are nearby; I plan to test it.\nSunny breezes tugged at the banners, and Bridge-Whisperer feels like a title the bridges might actually enjoy."
+      },
+      {
+        "input": {
+          "chat_transcript": "Argued with the Harbor Watch about a crate. Saw a fox courier.",
+          "key_events": ["Mist at the Harbor", "Rumor about a ghost babysitter"]
+        },
+        "output": "Mist rolled in at the Harbor, softening voices but not the argument about the missing crate.\nA fox courier watched with bright eyes, and someone whispered about a ghost hiring a babysitter.\nValdris keeps its secrets damp and smiling."
+      }
+    ]
+  }
+}
