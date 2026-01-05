@@ -18,20 +18,13 @@ import { CrimeSystem } from './crime-system.js';
 import { CatastropheSystem } from './catastrophe-system.js';
 import { ProphecySystem } from './prophecy-system.js';
 import { ReputationSystem } from './reputation-system.js';
-
-const WEATHER_ICONS = {
-    clear: '☀️', sunny: '☀️', cloudy: '☁️', overcast: '☁️',
-    rain: '🌧️', light_rain: '🌧️', heavy_rain: '🌧️',
-    storm: '⛈️', thunderstorm: '⛈️',
-    snow: '❄️', light_snow: '❄️', heavy_snow: '❄️', blizzard: '🌨️',
-    fog: '🌫️', mist: '🌫️',
-    wind: '💨', sandstorm: '🏜️', magical_storm: '✨'
-};
+import { initValdrisWorldUI } from './ui.js';
 
 class ValdrisWorldSimulator {
     constructor() {
         this.systems = {};
         this.panel = null;
+        this.ui = null;
         this.initialized = false;
     }
 
@@ -41,8 +34,11 @@ class ValdrisWorldSimulator {
         stateManager.load();
         this.initializeSystems();
         this.initializeAllSystems();
-        this.createPanel();
-        this.setupEventListeners();
+        try {
+            this.ui = initValdrisWorldUI(this);
+        } catch (e) {
+            console.warn('[ValdrisWorldSimulator] UI initialization failed', e);
+        }
         this.registerSillyTavernHooks();
         stateManager.startAutoSave(30000);
 
@@ -96,126 +92,6 @@ class ValdrisWorldSimulator {
         }
     }
 
-    createPanel() {
-        const panel = document.createElement('div');
-        panel.id = 'valdris-world-panel';
-        panel.innerHTML = `
-            <div class="vws-header">
-                <span class="vws-title">Valdris World</span>
-                <button id="vws-toggle-expand" title="Expand/Collapse">▼</button>
-                <button id="vws-settings-btn" title="Settings">⚙️</button>
-            </div>
-            <div class="vws-content">
-                <div class="vws-row vws-date-row">
-                    <span id="vws-date-display"></span>
-                </div>
-                <div class="vws-row vws-weather-row">
-                    <span id="vws-weather-display"></span>
-                </div>
-                <div class="vws-row vws-status-row">
-                    <span id="vws-status-display"></span>
-                </div>
-                <div class="vws-controls">
-                    <button id="vws-advance-hour" title="Advance 1 Hour">+1h</button>
-                    <button id="vws-advance-day" title="Advance 1 Day">+1d</button>
-                    <button id="vws-advance-week" title="Advance 1 Week">+7d</button>
-                </div>
-            </div>
-            <div class="vws-settings hidden">
-                <div class="vws-settings-section">
-                    <h4>Time Controls</h4>
-                    <button id="vws-pause-time">⏸️ Pause</button>
-                    <button id="vws-resume-time">▶️ Resume</button>
-                </div>
-                <div class="vws-settings-section">
-                    <h4>Data</h4>
-                    <button id="vws-export-state">📤 Export</button>
-                    <button id="vws-import-state">📥 Import</button>
-                    <button id="vws-reset-state">🗑️ Reset</button>
-                </div>
-            </div>
-        `;
-        document.body.appendChild(panel);
-        this.panel = panel;
-        this.updatePanel();
-    }
-
-    setupEventListeners() {
-        const panel = this.panel;
-
-        panel.querySelector('#vws-toggle-expand').addEventListener('click', () => {
-            panel.classList.toggle('collapsed');
-            const btn = panel.querySelector('#vws-toggle-expand');
-            btn.textContent = panel.classList.contains('collapsed') ? '▲' : '▼';
-        });
-
-        panel.querySelector('#vws-settings-btn').addEventListener('click', () => {
-            panel.querySelector('.vws-settings').classList.toggle('hidden');
-        });
-
-        panel.querySelector('#vws-advance-hour').addEventListener('click', () => {
-            this.advanceTime({ hours: 1 });
-        });
-
-        panel.querySelector('#vws-advance-day').addEventListener('click', () => {
-            this.advanceTime({ days: 1 });
-        });
-
-        panel.querySelector('#vws-advance-week').addEventListener('click', () => {
-            this.advanceTime({ days: 7 });
-        });
-
-        panel.querySelector('#vws-pause-time').addEventListener('click', () => {
-            if (this.systems.time.pause) this.systems.time.pause();
-        });
-
-        panel.querySelector('#vws-resume-time').addEventListener('click', () => {
-            if (this.systems.time.resume) this.systems.time.resume();
-        });
-
-        panel.querySelector('#vws-export-state').addEventListener('click', () => {
-            const data = stateManager.exportState();
-            const blob = new Blob([data], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `valdris-world-state-${Date.now()}.json`;
-            a.click();
-            URL.revokeObjectURL(url);
-        });
-
-        panel.querySelector('#vws-import-state').addEventListener('click', () => {
-            const input = document.createElement('input');
-            input.type = 'file';
-            input.accept = '.json';
-            input.onchange = (e) => {
-                const file = e.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = (event) => {
-                        if (stateManager.importState(event.target.result)) {
-                            window.location.reload();
-                        }
-                    };
-                    reader.readAsText(file);
-                }
-            };
-            input.click();
-        });
-
-        panel.querySelector('#vws-reset-state').addEventListener('click', () => {
-            if (confirm('Reset all world state? This cannot be undone.')) {
-                stateManager.reset();
-                window.location.reload();
-            }
-        });
-
-        // Listen for system events
-        window.addEventListener('vws-time-advanced', () => this.updatePanel());
-        window.addEventListener('vws-weather-changed', () => this.updatePanel());
-        window.addEventListener('vws-world-event', (e) => this.handleWorldEvent(e.detail));
-    }
-
     registerSillyTavernHooks() {
         const eventSource = window?.eventSource;
         if (!eventSource || typeof eventSource.on !== 'function') {
@@ -228,7 +104,7 @@ class ValdrisWorldSimulator {
         });
 
         eventSource.on('chat_changed', () => {
-            this.updatePanel();
+            this.ui?.updatePanel?.();
         });
 
         // Inject world context into prompts
@@ -247,50 +123,7 @@ class ValdrisWorldSimulator {
             this.systems.time.advanceTime({ days, hours });
         }
         stateManager.save();
-        this.updatePanel();
-    }
-
-    updatePanel() {
-        if (!this.panel) return;
-
-        const dateEl = this.panel.querySelector('#vws-date-display');
-        const weatherEl = this.panel.querySelector('#vws-weather-display');
-        const statusEl = this.panel.querySelector('#vws-status-display');
-
-        // Update date
-        if (this.systems.time?.getCurrentDateString) {
-            dateEl.textContent = this.systems.time.getCurrentDateString();
-        } else if (this.systems.time?.getCurrentDate) {
-            dateEl.textContent = this.systems.time.getCurrentDate();
-        }
-
-        // Update weather
-        if (this.systems.weather?.getCurrentWeather) {
-            const weather = this.systems.weather.getCurrentWeather();
-            const icon = WEATHER_ICONS[weather?.type] || WEATHER_ICONS[weather?.current] || '🌤️';
-            const desc = weather?.description || weather?.type || 'Unknown';
-            weatherEl.textContent = `${icon} ${desc}`;
-        }
-
-        // Update status summary
-        const statusParts = [];
-
-        if (this.systems.warfare?.getActiveWars) {
-            const wars = this.systems.warfare.getActiveWars();
-            if (wars.length > 0) statusParts.push(`⚔️ ${wars.length} war(s)`);
-        }
-
-        if (this.systems.catastrophe?.getActiveCatastrophes) {
-            const cats = this.systems.catastrophe.getActiveCatastrophes();
-            if (cats.length > 0) statusParts.push(`💀 ${cats.length} crisis`);
-        }
-
-        if (this.systems.prophecy?.getActiveProphecies) {
-            const prophecies = this.systems.prophecy.getActiveProphecies();
-            if (prophecies.length > 0) statusParts.push(`🔮 ${prophecies.length} prophecy`);
-        }
-
-        statusEl.textContent = statusParts.length > 0 ? statusParts.join(' | ') : 'World at peace';
+        this.ui?.updatePanel?.();
     }
 
     handleWorldEvent(event) {
@@ -453,7 +286,7 @@ function ensureVMasterTracker() {
             tracker.smokeTest = () => {
                 try {
                     return {
-                        panelExists: Boolean(document.getElementById('valdris-world-panel')),
+                        panelExists: Boolean(document.getElementById('valdris-world-sim-panel')),
                         apiMethods: Object.keys(tracker).sort(),
                         lastConsoleErrors: [...vwsErrorBuffer]
                     };
