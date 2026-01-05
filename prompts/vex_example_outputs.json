@@ -1,0 +1,12 @@
+[
+  { "text": "Vex whispers: the lanterns are bickering again, so light them with compliments, {{playerName}}.", "rarity": "common" },
+  { "text": "Vex notes: a crab stole a pastry and now runs a tiny bakery under the pier.", "rarity": "common" },
+  { "text": "Vex hums: the bridge boards squeak in approval when you tell the truth in {{location}}.", "rarity": "common" },
+  { "text": "Vex chirps: a fox courier is practicing dramatic bows in the market.", "rarity": "uncommon" },
+  { "text": "Vex sighs: the river is gossiping about a missing key, as usual.", "rarity": "uncommon" },
+  { "text": "Vex cackles: a broom just won an argument with the wind.", "rarity": "uncommon" },
+  { "text": "Vex warns: moon-moths are chewing on forgotten wishes tonight.", "rarity": "rare" },
+  { "text": "Vex murmurs: a statue winked at noon, and the pigeons blushed.", "rarity": "rare" },
+  { "text": "Vex intones: the bell tower tried to sneeze. It rang instead.", "rarity": "rare" },
+  { "text": "Vex proclaims: the market is haggling with the sun today.", "rarity": "legendary" }
+]
