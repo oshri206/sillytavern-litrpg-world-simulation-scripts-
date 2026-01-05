@@ -1,0 +1,34 @@
+{
+  "name": "Valdris-Living-World",
+  "version": "0.1.0",
+  "author": "Codex",
+  "description": "Living world simulation suite for Valdris with rumors, economy, NPC memory, festivals, weather, and more.",
+  "entry": "src/main.js",
+  "ui": {
+    "panels": [
+      "valdris-inbox",
+      "valdris-calendar",
+      "valdris-merchant",
+      "valdris-titleboard",
+      "valdris-journal"
+    ],
+    "menu": [
+      {
+        "id": "valdris-demo-seed",
+        "label": "Seed Valdris Living World Demo",
+        "command": "valdris.demo"
+      }
+    ]
+  },
+  "commands": {
+    "valdris.demo": {
+      "label": "Run 7-day Valdris demo",
+      "description": "Seeds world data and runs a 7-day simulation.",
+      "handler": "ValdrisLivingWorld.runDemo"
+    }
+  },
+  "hooks": {
+    "onChat": "ValdrisLivingWorld.onChat",
+    "onLoad": "ValdrisLivingWorld.init"
+  }
+}

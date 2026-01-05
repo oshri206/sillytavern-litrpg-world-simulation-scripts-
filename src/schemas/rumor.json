@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Rumor",
+  "type": "object",
+  "required": ["id", "text", "origin", "provenance", "locations", "strength"],
+  "properties": {
+    "id": { "type": "string" },
+    "text": { "type": "string" },
+    "origin": { "type": "string" },
+    "provenance": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "locations": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "strength": { "type": "number" },
+    "createdAt": { "type": "string" }
+  }
+}
