@@ -392,12 +392,89 @@ class ValdrisWorldSimulator {
 // Initialize and expose globally
 const simulator = new ValdrisWorldSimulator();
 
+// [VWS] Defensive shims for missing globals and error capture.
+const vwsErrorBuffer = [];
+const MAX_VWS_ERRORS = 10;
+const recordVwsError = (error) => {
+    const message = error?.message || error?.reason || error?.toString?.() || String(error);
+    vwsErrorBuffer.push(message);
+    if (vwsErrorBuffer.length > MAX_VWS_ERRORS) vwsErrorBuffer.shift();
+};
+
+try {
+    window.addEventListener('error', (event) => recordVwsError(event));
+    window.addEventListener('unhandledrejection', (event) => recordVwsError(event));
+} catch (e) {
+    console.warn('[VWS] Error capture setup failed', e);
+}
+
+function ensureVMasterTracker() {
+    try {
+        window.VMasterTracker = window.VMasterTracker || {};
+        const tracker = window.VMasterTracker;
+
+        if (!tracker.advance) {
+            tracker.advance = (delta = {}) => {
+                try {
+                    if (simulator?.advanceTime) {
+                        simulator.advanceTime(delta);
+                        return true;
+                    }
+                    console.warn('[VWS] advance fallback: simulator missing');
+                    return false;
+                } catch (e) {
+                    console.warn('[VWS] advance failed', e);
+                    return false;
+                }
+            };
+        }
+
+        if (!tracker.advanceDay) {
+            tracker.advanceDay = () => tracker.advance({ days: 1 });
+        }
+
+        if (!tracker.advanceWeek) {
+            tracker.advanceWeek = () => tracker.advance({ days: 7 });
+        }
+
+        if (!tracker.setEnabled) {
+            tracker.setEnabled = (enabled) => {
+                try {
+                    console.log('[VWS] setEnabled called', Boolean(enabled));
+                    return true;
+                } catch (e) {
+                    console.warn('[VWS] setEnabled failed', e);
+                    return false;
+                }
+            };
+        }
+
+        if (!tracker.smokeTest) {
+            tracker.smokeTest = () => {
+                try {
+                    return {
+                        panelExists: Boolean(document.getElementById('valdris-world-panel')),
+                        apiMethods: Object.keys(tracker).sort(),
+                        lastConsoleErrors: [...vwsErrorBuffer]
+                    };
+                } catch (e) {
+                    console.warn('[VWS] smokeTest failed', e);
+                    return { panelExists: false, apiMethods: [], lastConsoleErrors: [...vwsErrorBuffer] };
+                }
+            };
+        }
+    } catch (e) {
+        console.warn('[VWS] ensureVMasterTracker failed', e);
+    }
+}
+
 function init() {
     simulator.initialize();
 
     // Expose globally for external access
     window.ValdrisWorldSimulator = simulator;
     window.getWorldContext = () => simulator.getWorldContext();
+    ensureVMasterTracker();
 }
 
 if (document.readyState === 'loading') {

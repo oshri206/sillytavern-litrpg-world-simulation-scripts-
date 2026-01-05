@@ -1,4 +1,4 @@
-#valdris-world-sim-panel {
+#valdris-world-panel {
     position: fixed;
     right: 20px;
     bottom: 20px;
@@ -17,12 +17,12 @@
     transition: all 0.3s ease;
 }
 
-#valdris-world-sim-panel.is-collapsed .valdris-world__content,
-#valdris-world-sim-panel.is-collapsed .valdris-world__settings {
+#valdris-world-panel.collapsed .vws-content,
+#valdris-world-panel.collapsed .vws-settings {
     display: none;
 }
 
-#valdris-world-sim-panel .valdris-world__header {
+#valdris-world-panel .vws-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -31,17 +31,17 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-#valdris-world-sim-panel .valdris-world__title {
+#valdris-world-panel .vws-title {
     font-weight: 600;
     font-size: 13px;
     color: #d4af37;
 }
 
-#valdris-world-sim-panel .valdris-world__content {
+#valdris-world-panel .vws-content {
     padding: 12px 14px;
 }
 
-#valdris-world-sim-panel .valdris-world__row {
+#valdris-world-panel .vws-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -49,18 +49,18 @@
     padding: 4px 0;
 }
 
-#valdris-world-sim-panel .valdris-world__date-row {
+#valdris-world-panel .vws-date-row {
     font-size: 13px;
     font-weight: 500;
     color: #87ceeb;
 }
 
-#valdris-world-sim-panel .valdris-world__weather-row {
+#valdris-world-panel .vws-weather-row {
     font-size: 12px;
     color: #e0e0e0;
 }
 
-#valdris-world-sim-panel .valdris-world__status-row {
+#valdris-world-panel .vws-status-row {
     font-size: 11px;
     color: #a0a0a0;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -68,7 +68,7 @@
     margin-top: 4px;
 }
 
-#valdris-world-sim-panel .valdris-world__controls {
+#valdris-world-panel .vws-controls {
     display: flex;
     gap: 6px;
     margin-top: 10px;
@@ -76,7 +76,7 @@
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-#valdris-world-sim-panel button {
+#valdris-world-panel button {
     background: #2a3d63;
     color: #f4f1e8;
     border: none;
@@ -88,42 +88,42 @@
     flex: 1;
 }
 
-#valdris-world-sim-panel .valdris-world__header button {
+#valdris-world-panel .vws-header button {
     flex: none;
     padding: 4px 8px;
     background: transparent;
     font-size: 12px;
 }
 
-#valdris-world-sim-panel button:hover {
+#valdris-world-panel button:hover {
     background: #3a5284;
     transform: translateY(-1px);
 }
 
-#valdris-world-sim-panel .valdris-world__header button:hover {
+#valdris-world-panel .vws-header button:hover {
     background: rgba(255, 255, 255, 0.1);
     transform: none;
 }
 
-#valdris-world-sim-panel .valdris-world__settings {
+#valdris-world-panel .vws-settings {
     padding: 12px 14px;
     background: rgba(15, 15, 25, 0.8);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-#valdris-world-sim-panel .valdris-world__settings.is-hidden {
+#valdris-world-panel .vws-settings.hidden {
     display: none;
 }
 
-#valdris-world-sim-panel .valdris-world__settings-section {
+#valdris-world-panel .vws-settings-section {
     margin-bottom: 12px;
 }
 
-#valdris-world-sim-panel .valdris-world__settings-section:last-child {
+#valdris-world-panel .vws-settings-section:last-child {
     margin-bottom: 0;
 }
 
-#valdris-world-sim-panel .valdris-world__settings-section h4 {
+#valdris-world-panel .vws-settings-section h4 {
     margin: 0 0 8px 0;
     font-size: 11px;
     color: #888;
@@ -131,13 +131,13 @@
     letter-spacing: 0.5px;
 }
 
-#valdris-world-sim-panel .valdris-world__settings-section button {
+#valdris-world-panel .vws-settings-section button {
     margin-right: 6px;
     margin-bottom: 6px;
 }
 
 /* Event notifications */
-.valdris-world__notification {
+.vws-notification {
     position: fixed;
     right: 20px;
     top: 20px;
@@ -149,23 +149,23 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     border-left: 3px solid #d4af37;
     z-index: 10000;
-    animation: valdris-world-slide-in 0.3s ease-out;
+    animation: vws-slide-in 0.3s ease-out;
     max-width: 300px;
 }
 
-.valdris-world__notification.valdris-world__notification--danger {
+.vws-notification.vws-danger {
     border-left-color: #dc3545;
 }
 
-.valdris-world__notification.valdris-world__notification--success {
+.vws-notification.vws-success {
     border-left-color: #28a745;
 }
 
-.valdris-world__notification.valdris-world__notification--warning {
+.vws-notification.vws-warning {
     border-left-color: #ffc107;
 }
 
-@keyframes valdris-world-slide-in {
+@keyframes vws-slide-in {
     from {
         transform: translateX(100%);
         opacity: 0;
@@ -176,7 +176,7 @@
     }
 }
 
-@keyframes valdris-world-fade-out {
+@keyframes vws-fade-out {
     from {
         opacity: 1;
     }
@@ -187,7 +187,7 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    #valdris-world-sim-panel {
+    #valdris-world-panel {
         right: 10px;
         bottom: 10px;
         min-width: 200px;
