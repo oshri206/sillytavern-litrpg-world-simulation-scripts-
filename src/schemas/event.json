@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WorldEvent",
+  "type": "object",
+  "required": ["id", "type", "description", "day"],
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "type": "string" },
+    "description": { "type": "string" },
+    "day": { "type": "number" }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "valdris-living-world",
+  "version": "0.1.0",
+  "description": "Valdris Living World SillyTavern extension",
+  "type": "module",
+  "scripts": {
+    "test": "node tests/scheduler.test.js && node tests/transforms.test.js"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "description": "Festival calendar entries",
+  "festivals": [
+    { "day": 3, "name": "Lantern Mischief", "tagline": "Lights wander and so do the guests." },
+    { "day": 7, "name": "Soup & Secrets", "tagline": "Bring a spoon and a whisper." },
+    { "day": 11, "name": "Riddle Run", "tagline": "Answer wrong, dance anyway." }
+  ]
+}

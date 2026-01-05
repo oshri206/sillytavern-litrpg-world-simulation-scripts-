@@ -1,0 +1,45 @@
+{
+  "description": "Encounter templates",
+  "templates": [
+    {
+      "scene": "A wagon of turnips has tipped over, and the turnips are rolling toward a sleeping guard.",
+      "outcomes": ["Wake the guard gently", "Chase the turnips", "Blame the wind"]
+    },
+    {
+      "scene": "A flock of opinionated geese blocks the bridge, honking a toll in riddles.",
+      "outcomes": ["Solve the riddle", "Offer bread", "Take the long way"]
+    },
+    {
+      "scene": "A tiny storm cloud hovers over a single merchant cart, drizzling coins.",
+      "outcomes": ["Help the merchant", "Collect the coins", "Ask the cloud to move"]
+    },
+    {
+      "scene": "An animated broom is sweeping a circle around a glowing pebble.",
+      "outcomes": ["Inspect the pebble", "Distract the broom", "Leave an offering"]
+    },
+    {
+      "scene": "A bandit troupe is rehearsing an apology song on the roadside.",
+      "outcomes": ["Listen politely", "Recruit them", "Request reparations"]
+    },
+    {
+      "scene": "A courier fox demands a signature on a letter sealed with moss.",
+      "outcomes": ["Sign it", "Refuse", "Ask for the sender"]
+    },
+    {
+      "scene": "A pond is bubbling with laughter. Something under the surface tells jokes.",
+      "outcomes": ["Laugh along", "Investigate", "Toss a coin"]
+    },
+    {
+      "scene": "Festival lanterns drift the wrong direction, luring a crowd away.",
+      "outcomes": ["Follow the lanterns", "Redirect the crowd", "Ask Vex"]
+    },
+    {
+      "scene": "A statue has stepped down to stretch. It asks for a quick story.",
+      "outcomes": ["Tell a tale", "Offer directions", "Ask for blessing"]
+    },
+    {
+      "scene": "The wind delivers a scarf with an embroidered warning.",
+      "outcomes": ["Read the warning", "Share with locals", "Ignore it"]
+    }
+  ]
+}

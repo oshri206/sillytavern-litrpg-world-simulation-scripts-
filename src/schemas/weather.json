@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Weather",
+  "type": "object",
+  "required": ["day", "state"],
+  "properties": {
+    "day": { "type": "number" },
+    "state": { "type": "string" },
+    "effects": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}
