@@ -1,0 +1,9 @@
+{
+  "name": "Valdris World Simulator",
+  "version": "1.0.0",
+  "author": "OpenAI Codex",
+  "description": "World simulation systems for Valdris, providing time, weather, factions, events, and more.",
+  "script": "index.js",
+  "styles": ["style.css"],
+  "license": "MIT"
+}
